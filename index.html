@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
   <title>Salary Calculator</title>
 </head>
 <body>
@@ -10,11 +10,49 @@
     <h1>Salary Calculator</h1>
   </header>
   <main>
-    <h2>Add Employee</h2>
+    <section>
+      <h2>Add Employee</h2>
+      <form id="employee-form">
+        <span id="inputs">
+          <input type="text" id="first-name" data-testid="firstNameInput" placeholder="First Name">
+          <input type="text" id="last-name" data-testid="lastNameInput" placeholder="Last Name">
+          <input type="text" id="id-number" data-testid="idInput" placeholder="Employee ID">
+          <input type="text" id="title" data-testid="titleInput" placeholder="Employee Title">
+          <input type="text" id="annual-salary" data-testid="annualSalaryInput" placeholder="Annual Salary">
+        </span>
+        <button id="submit-btn" data-testid="submitButton" onclick="addEmpSalary(event)">Submit</button>  
+      </form>
+    </section>
+    <section>
     <h2>Employees</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>ID Number</th>
+          <th>Title</th>
+          <th class="salary-col">Salary</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="salary-table">
+        <!-- <tr>
+          <td>TEST FIRST</td>
+          <td>TEST LAST</td>
+          <td>TEST ID</td>
+          <td>TEST TITLE</td>
+          <td class="salary-col">TEST SALARY</td>
+          <td><button type="button" id="delete-btn" onclick="removeRow(event)">Delete</button></td>
+        </tr> -->
+         <!-- table will go here when employees are added -->
+      </tbody>
+    </table>
+  </section>
   </main>
-  <footer>
-    <p>Total Monthly</p>
+  <footer id="total-monthly">
+    <p>Total Monthly: <span id="monthly-emp-salary">$00,000.00</span></p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>

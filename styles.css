@@ -1,0 +1,112 @@
+/* ROOT STYLES */
+:root {
+--main-blue: cadetblue;
+}
+
+/* GENERAL STYLES */
+body {
+    width: 96%;
+    background-color: lightblue;
+    font-family:'Courier New', Courier, monospace ;
+}
+
+header {
+    background-color: var(--main-blue);
+    color:aliceblue;
+    margin: 0px;
+    padding: 10px 15px 10px 15px;
+    width: 100%;
+}
+
+footer {
+    background-color: var(--main-blue);
+    width: 100%;
+    margin: 40px 0px;
+    padding:5px 10px 5px 0px;
+    text-align: right;
+}
+
+/* FORM STYLES */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+#submit-btn {
+width: 150px;
+font-size: 20px;
+}
+
+#inputs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content: center;
+    padding: 5px;
+}
+
+input {
+    max-width: 350px;
+    min-width: 250px;
+    width: 19%;
+    margin: 4px;
+    font-size: 18px;
+}
+
+/* TABLE STYLES */
+
+table {
+    width: 100%;
+    border: 1px solid #000000;
+    border-collapse: collapse;
+}
+
+thead {
+    
+    background-color: var(--main-blue);
+}
+
+th {
+    text-align: left;
+    padding: 5px;
+    border-left: 1px solid #000000;
+    font-size: 18px;
+}
+
+td {
+    border: 1px solid #000000;
+    padding: 5px;
+    text-align: left;
+}
+
+.salary-col {
+    text-align: right;
+}
+
+tbody tr:nth-child(odd){ 
+    background:azure;
+  }
+  
+  tbody tr:nth-child(even){
+    background:aliceblue;
+  }
+
+tbody td:nth-child(3) {
+    width: 100px;
+}
+
+tbody td:nth-child(6) {
+    width: 150px;
+}
+
+thead th:nth-child(3) {
+    width: 100px;
+}
+
+thead th:nth-child(6) {
+    width: 150px;
+}
+
+#delete-btn {
+    width: 100%;
+}
