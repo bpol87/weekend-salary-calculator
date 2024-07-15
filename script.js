@@ -14,17 +14,19 @@ function addEmpSalary(event) {
     let empId = document.getElementById('id-number').value;
     let empTitle = document.getElementById('title').value;
     let annualSalary = Number(document.getElementById('annual-salary').value);
-
+    
+    if (firstName.length > 0 && lastName.length > 0 && empId > 0 && empTitle.length > 0 && annualSalary > 0) {
     addEmployeeToList(firstName, lastName, empId, empTitle, annualSalary)
     rowId = rowId + 1;
 
     let empMonthly = Math.round(annualSalary / 12);
     monthlyTotal = monthlyTotal + empMonthly;
     let monthlyTotalConverted = USDollar.format(monthlyTotal)
-if (monthlyTotal > 20000) {
-    totalFooter.classList.add('over-budget')
-    monthlySalary.classList.add('budget-color')
-}
+    if (monthlyTotal > 20000) {
+        totalFooter.classList.add('over-budget')
+        monthlySalary.classList.add('budget-color')
+    }
+    
     monthlySalary.innerHTML = monthlyTotalConverted;
     
     salTable.innerHTML += `
@@ -36,12 +38,14 @@ if (monthlyTotal > 20000) {
         <td class="salary-col">${USDollar.format(annualSalary)}</td>
         <td><button id="delete-btn" onclick="removeRow(event, ${rowId})">Delete</button></td>
     </tr>
-    `
-empForm.reset();
+    `;
+    empForm.reset();
+    } else {
+        alert('Please fill out all fields in the table');
+    }
 }
 
 function removeRow(event, idNum) {
-    console.log(employeeList[idNum-1].empDetails.annualSalary);
     let removedSalary = employeeList[idNum-1].empDetails.annualSalary;
     let empMonthly = Math.round(removedSalary / 12);
     monthlyTotal = monthlyTotal - empMonthly;
@@ -49,7 +53,6 @@ function removeRow(event, idNum) {
 
     monthlySalary.innerHTML = monthlyTotalConverted;
 
-    console.log(`'the row removed was:', ${removedSalary}`);
 if (monthlyTotal < 20000) {
     totalFooter.classList.remove('over-budget');
     monthlySalary.classList.remove('budget-color')
