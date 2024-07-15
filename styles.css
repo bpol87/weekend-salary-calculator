@@ -92,19 +92,19 @@ tbody tr:nth-child(odd){
   }
 
 tbody td:nth-child(3) {
-    width: 100px;
+    width: 75px;
 }
 
 tbody td:nth-child(6) {
-    width: 150px;
-}
-
-thead th:nth-child(3) {
     width: 100px;
 }
 
+thead th:nth-child(3) {
+    width: 75px;
+}
+
 thead th:nth-child(6) {
-    width: 150px;
+    width: 100px;
 }
 
 #delete-btn {
