@@ -110,3 +110,7 @@ thead th:nth-child(6) {
 #delete-btn {
     width: 100%;
 }
+
+.over-budget {
+    color: red;
+}
