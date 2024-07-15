@@ -16,30 +16,30 @@ function addEmpSalary(event) {
     let annualSalary = Number(document.getElementById('annual-salary').value);
     
     if (firstName.length > 0 && lastName.length > 0 && empId > 0 && empTitle.length > 0 && annualSalary > 0) {
-    addEmployeeToList(firstName, lastName, empId, empTitle, annualSalary)
-    rowId = rowId + 1;
+        addEmployeeToList(firstName, lastName, empId, empTitle, annualSalary)
+        rowId = rowId + 1;
 
-    let empMonthly = Math.round(annualSalary / 12);
-    monthlyTotal = monthlyTotal + empMonthly;
-    let monthlyTotalConverted = USDollar.format(monthlyTotal)
-    if (monthlyTotal > 20000) {
-        totalFooter.classList.add('over-budget')
-        monthlySalary.classList.add('budget-color')
-    }
-    
-    monthlySalary.innerHTML = monthlyTotalConverted;
-    
-    salTable.innerHTML += `
-    <tr>
-        <td>${firstName}</td>
-        <td>${lastName}</td>
-        <td>${empId}</td>
-        <td>${empTitle}</td>
-        <td class="salary-col">${USDollar.format(annualSalary)}</td>
-        <td><button id="delete-btn" onclick="removeRow(event, ${rowId})">Delete</button></td>
-    </tr>
-    `;
-    empForm.reset();
+        let empMonthly = Math.round(annualSalary / 12);
+        monthlyTotal = monthlyTotal + empMonthly;
+        let monthlyTotalConverted = money.format(monthlyTotal)
+        if (monthlyTotal > 20000) {
+            totalFooter.classList.add('over-budget')
+            monthlySalary.classList.add('budget-color')
+        }
+        
+        monthlySalary.innerHTML = monthlyTotalConverted;
+        
+        salTable.innerHTML += `
+        <tr>
+            <td>${firstName}</td>
+            <td>${lastName}</td>
+            <td>${empId}</td>
+            <td>${empTitle}</td>
+            <td class="salary-col">${USDollar.format(annualSalary)}</td>
+            <td><button id="delete-btn" onclick="removeRow(event, ${rowId})">Delete</button></td>
+        </tr>
+        `;
+        empForm.reset();
     } else {
         alert('Please fill out all fields in the table');
     }
@@ -53,15 +53,15 @@ function removeRow(event, idNum) {
 
     monthlySalary.innerHTML = monthlyTotalConverted;
 
-if (monthlyTotal < 20000) {
-    totalFooter.classList.remove('over-budget');
-    monthlySalary.classList.remove('budget-color')
-}
+    if (monthlyTotal < 20000) {
+        totalFooter.classList.remove('over-budget');
+        monthlySalary.classList.remove('budget-color')
+    }
 
     event.target.parentElement.parentElement.remove();
 }
 
-let USDollar = new Intl.NumberFormat('en-US', {
+let money = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
 })
@@ -77,6 +77,5 @@ function addEmployeeToList(first, last, id, title, salary) {
             annualSalary: salary
         }
     }
-employeeList.push(addedEmployee);
-console.log(employeeList);
+    employeeList.push(addedEmployee);
 }
