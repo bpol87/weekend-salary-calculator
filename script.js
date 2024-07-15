@@ -23,6 +23,7 @@ function addEmpSalary(event) {
     let monthlyTotalConverted = USDollar.format(monthlyTotal)
 if (monthlyTotal > 20000) {
     totalFooter.classList.add('over-budget')
+    monthlySalary.classList.add('budget-color')
 }
     monthlySalary.innerHTML = monthlyTotalConverted;
     
@@ -51,6 +52,7 @@ function removeRow(event, idNum) {
     console.log(`'the row removed was:', ${removedSalary}`);
 if (monthlyTotal < 20000) {
     totalFooter.classList.remove('over-budget');
+    monthlySalary.classList.remove('budget-color')
 }
 
     event.target.parentElement.parentElement.remove();

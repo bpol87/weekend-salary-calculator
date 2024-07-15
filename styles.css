@@ -112,5 +112,10 @@ thead th:nth-child(6) {
 }
 
 .over-budget {
-    color: red;
+    background-color:mistyrose;
+    border: 2px solid darkred;
+}
+
+.budget-color {
+    color: darkred;
 }
