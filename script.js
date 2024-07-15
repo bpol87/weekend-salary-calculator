@@ -49,6 +49,10 @@ function removeRow(event, idNum) {
     monthlySalary.innerHTML = monthlyTotalConverted;
 
     console.log(`'the row removed was:', ${removedSalary}`);
+if (monthlyTotal < 20000) {
+    totalFooter.classList.remove('over-budget');
+}
+
     event.target.parentElement.parentElement.remove();
 }
 
